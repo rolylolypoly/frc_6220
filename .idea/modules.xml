@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/GradleRIO.iml" filepath="$PROJECT_DIR$/GradleRIO.iml" />
+      <module fileurl="file://$PROJECT_DIR$/frc_6220.iml" filepath="$PROJECT_DIR$/frc_6220.iml" />
     </modules>
   </component>
 </project>
