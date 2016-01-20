@@ -39,5 +39,5 @@ public class RobotMain extends SampleRobot {
             drive.arcadeDrive(joystick);
             Timer.delay(0.01);
         }
-            }
+    }
 }
