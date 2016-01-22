@@ -10,23 +10,23 @@ public class RobotMain extends SampleRobot {
     RobotDrive drive;
     Joystick joystick;
     public void robotInit() {
-        //Joystick
+        //Motor
         drive = new RobotDrive(1,2);
-
         //Debug
         boolean debug = false;
         double voltage = DriverStation.getInstance().getBatteryVoltage();
         BuiltInAccelerometer accelerometer = new BuiltInAccelerometer();
+        if (debug) {
+            System.out.println("Xbox controller? " + joystick.getIsXbox());
+            System.out.println("Number of axes: " + joystick.getAxisCount());
+        }
         while (debug) {
             System.out.println("Voltage: " + voltage);
             System.out.println("X acceleration: " + accelerometer.getX());
             System.out.println("Y acceleration: " + accelerometer.getY());
             System.out.println("Z acceleration: " + accelerometer.getZ());
         }
-        if (debug) {
-            System.out.println(joystick.getIsXbox());
-
-        }
+        //Joystick
         joystick = new Joystick(1);
     }
 
@@ -42,8 +42,8 @@ public class RobotMain extends SampleRobot {
     // This function is called once each time the robot enters teleop mode.
     public void operatorControl() {
         while(isOperatorControl() && isEnabled()) {
-            //Put code here
-            drive.tankDrive(joystick.getRawAxis(1), joystick.getRawAxis(2));
+            //http://team358.org/files/programming/ControlSystem2015-2019/images/XBoxControlMapping.jpg
+            drive.tankDrive(joystick.getRawAxis(2), joystick.getRawAxis(3));
             Timer.delay(0.01);
         }
     }
