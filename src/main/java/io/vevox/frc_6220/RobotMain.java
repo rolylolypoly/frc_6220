@@ -10,6 +10,9 @@ public class RobotMain extends SampleRobot {
     RobotDrive drive;
     Joystick joystick;
     public void robotInit() {
+        //Joystick
+        drive = new RobotDrive(1,2);
+
         //Debug
         boolean debug = false;
         double voltage = DriverStation.getInstance().getBatteryVoltage();
@@ -20,15 +23,19 @@ public class RobotMain extends SampleRobot {
             System.out.println("Y acceleration: " + accelerometer.getY());
             System.out.println("Z acceleration: " + accelerometer.getZ());
         }
-        //Joystick
-        drive = new RobotDrive(1,2,3,4);
-        joystick = new Joystick(1);
+        if (debug) {
+            System.out.println(joystick.getIsXbox());
 
+        }
+        joystick = new Joystick(1);
     }
 
     //This function is called once each time the robot enters autonomous mode.
     public void autonomous() {
         // Put code here
+        while (isAutonomous() && isEnabled()) {
+            drive.tankDrive(1,1);
+        }
         Timer.delay(0.05);
     }
 
@@ -36,7 +43,7 @@ public class RobotMain extends SampleRobot {
     public void operatorControl() {
         while(isOperatorControl() && isEnabled()) {
             //Put code here
-            drive.arcadeDrive(joystick);
+            drive.tankDrive(joystick.getRawAxis(1), joystick.getRawAxis(2));
             Timer.delay(0.01);
         }
     }
