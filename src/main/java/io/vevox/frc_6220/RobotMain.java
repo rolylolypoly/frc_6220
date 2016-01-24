@@ -9,9 +9,13 @@ import edu.wpi.first.wpilibj.*;
 public class RobotMain extends SampleRobot {
     RobotDrive drive;
     Joystick joystick;
+    VictorSP victorSP1;
+    VictorSP victorSP2;
     public void robotInit() {
         //Motor
         drive = new RobotDrive(1,2);
+        //victorSP1 = new VictorSP(1);
+        //victorSP2 = new VictorSP(2);
         //Debug
         boolean debug = false;
         double voltage = DriverStation.getInstance().getBatteryVoltage();
@@ -27,7 +31,10 @@ public class RobotMain extends SampleRobot {
             System.out.println("Z acceleration: " + accelerometer.getZ());
         }
         //Joystick
-        joystick = new Joystick(1);
+        joystick = new Joystick(0);
+        //victorSP1.set(0.1);
+        //victorSP2.set(0.1);
+        Timer.delay(0.01);
     }
 
     //This function is called once each time the robot enters autonomous mode.
@@ -43,7 +50,9 @@ public class RobotMain extends SampleRobot {
     public void operatorControl() {
         while(isOperatorControl() && isEnabled()) {
             //http://team358.org/files/programming/ControlSystem2015-2019/images/XBoxControlMapping.jpg
-            drive.tankDrive(joystick.getRawAxis(2), joystick.getRawAxis(3));
+            drive.tankDrive(joystick.getRawAxis(2), -1 * (joystick.getRawAxis(2)));
+            //victorSP1.set(0.1);
+            //victorSP2.set(0.1);
             Timer.delay(0.01);
         }
     }
