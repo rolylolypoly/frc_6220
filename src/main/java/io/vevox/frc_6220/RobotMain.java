@@ -51,7 +51,7 @@ public class RobotMain extends SampleRobot {
     public void operatorControl() {
         while(isOperatorControl() && isEnabled()) {
             //http://team358.org/files/programming/ControlSystem2015-2019/images/XBoxControlMapping.jpg
-            drive.tankDrive(joystick.getRawAxis(2), -1 * (joystick.getRawAxis(2)));
+            drive.tankDrive(-1 * (joystick.getRawAxis(1)), -1 * (joystick.getRawAxis(5)));
             //victorSP1.set(0.1);
             //victorSP2.set(0.1);
             Timer.delay(0.01);
