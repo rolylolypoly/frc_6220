@@ -11,7 +11,7 @@ public class RobotMain extends SampleRobot {
     Joystick joystick;
     public void robotInit() {
         //Motor
-        drive = new RobotDrive(1,2);
+        drive = new RobotDrive(1,2,3,4);
         //Debug
         boolean debug = false;
         double voltage = DriverStation.getInstance().getBatteryVoltage();
@@ -34,7 +34,7 @@ public class RobotMain extends SampleRobot {
     public void autonomous() {
         // Put code here
         while (isAutonomous() && isEnabled()) {
-            drive.tankDrive(1,1);
+            drive.tankDrive(0.1,0.1);
         }
         Timer.delay(0.05);
     }
