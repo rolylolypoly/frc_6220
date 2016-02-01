@@ -9,12 +9,12 @@ import edu.wpi.first.wpilibj.*;
 public class RobotMain extends SampleRobot {
     RobotDrive drive;
     Joystick joystick;
-    VictorSP victorSP1;
-    VictorSP victorSP2;
+    //VictorSP victorSP1;
+    //VictorSP victorSP2;
     public void robotInit() {
         //Motor
         drive = new RobotDrive(1,2,3,4);
-        drive = new RobotDrive(1,2);
+        //drive = new RobotDrive(1,2);
         //victorSP1 = new VictorSP(1);
         //victorSP2 = new VictorSP(2);
         //Debug
@@ -52,6 +52,7 @@ public class RobotMain extends SampleRobot {
         while(isOperatorControl() && isEnabled()) {
             //http://team358.org/files/programming/ControlSystem2015-2019/images/XBoxControlMapping.jpg
             drive.tankDrive(-1 * (joystick.getRawAxis(1)), -1 * (joystick.getRawAxis(5)));
+            //drive.tankDrive(joystick.getRawAxis(2),joystick.getRawAxis(3));
             //victorSP1.set(0.1);
             //victorSP2.set(0.1);
             Timer.delay(0.01);
