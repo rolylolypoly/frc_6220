@@ -1,7 +1,6 @@
 package io.vevox.frc_6220;
 
 import edu.wpi.first.wpilibj.*;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * Created by matt on 1/19/16.
@@ -10,6 +9,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class RobotMain extends SampleRobot {
     RobotDrive drive;
     Joystick joystick;
+    Auto goit;
     //VictorSP victorSP1;
     //VictorSP victorSP2;
     public void robotInit() {
@@ -32,22 +32,35 @@ public class RobotMain extends SampleRobot {
             System.out.println("Y acceleration: " + accelerometer.getY());
             System.out.println("Z acceleration: " + accelerometer.getZ());
         }
+        goit = new Auto(drive);
         //Joystick
         joystick = new Joystick(0);
         //victorSP1.set(0.1);
         //victorSP2.set(0.1);
-        CameraServer.getInstance().startAutomaticCapture();
     }
 
     //This function is called once each time the robot enters autonomous mode.
     public void autonomous() {
         // Put code here
         while (isAutonomous() && isEnabled()) {
-            for (int i = 0; i < 200; i++) {
-                drive.tankDrive(0.5,0.5);
+            //goit.fastly(.4, .03);//1 is 5, wtf
+            //goit.fastly(.5, .03);//1 is 5, wtf
+            //goit.fastly(.55, .6);//1 is 5, wtf
+            //goit.fastly(.5, .03);//1 is 5, wtf
+            //goit.fastly(.4, .03);//1 is 5,
+            //goit.fastly(.01, .2);//1 is 5, wtf
+            //goit.fastly(0.1, .03);//1 is 5, wtf
+
+            goit.fastly(.5, .05);//1 is 5, wtf
+            goit.fastly(1,.2);
+            goit.fastly(-.5, .1);
+
+            //goit.turn(45, Auto.direction.RIGHT);
+            while (isAutonomous() && isEnabled()) {
+                Timer.delay(1);
             }
+            return;
         }
-        Timer.delay(0.01);
     }
 
     // This function is called once each time the robot enters teleop mode.
@@ -55,11 +68,11 @@ public class RobotMain extends SampleRobot {
         int reverse = 1;
         while(isOperatorControl() && isEnabled()) {
             //http://team358.org/files/programming/ControlSystem2015-2019/images/XBoxControlMapping.jpg
-            //drive.tankDrive( -1 * (joystick.getRawAxis(1)), -1 * (joystick.getRawAxis(5)));
-            drive.tankDrive(joystick.getRawAxis(2),joystick.getRawAxis(3));
+            drive.tankDrive( -1 * (joystick.getRawAxis(1)), -1 * (joystick.getRawAxis(5)));
+            //drive.tankDrive(joystick.getRawAxis(2),joystick.getRawAxis(3));
             //victorSP1.set(0.1);
             //victorSP2.set(0.1);
-            Timer.delay(0.01);
+            Timer.delay(0.005);
         }
     }
 }
