@@ -1,7 +1,6 @@
 package io.vevox.frc_6220;
 
 import edu.wpi.first.wpilibj.RobotDrive;
-import edu.wpi.first.wpilibj.Timer;
 
 /**
  * Created by Bob on 3/31/2016.
@@ -18,10 +17,14 @@ public class Auto {
     }
 
     public void fastly(double speed, double time) {
-        time *= 100;
-        for (int i = 0; i <= time; i++) {
-            drive.tankDrive(speed, speed - .1);
-            Timer.delay(.01);
+        //time *= 100;
+        //for (int i = 0; i <= time; i++) {
+        //    drive.tankDrive(speed, speed - .1);
+        //    Timer.delay(.01);
+        //}
+        double end = time + System.currentTimeMillis();
+        while (end >= System.currentTimeMillis()) {
+            drive.tankDrive(speed, speed - .15);
         }
     }
 
@@ -29,7 +32,11 @@ public class Auto {
         //degrees *= 10;
         int d = 1;
         if (direction == Auto.direction.LEFT) d = -1;
-        for (int i = 0; i <= degrees; i++) {
+        //for (int i = 0; i <= degrees; i++) {
+        //    drive.tankDrive((d), (-1 * d));
+        //}
+        double end = (degrees * 1000) + System.currentTimeMillis();
+        while (end >= System.currentTimeMillis()) {
             drive.tankDrive((d), (-1 * d));
         }
     }

@@ -42,24 +42,26 @@ public class RobotMain extends SampleRobot {
     //This function is called once each time the robot enters autonomous mode.
     public void autonomous() {
         // Put code here
-        while (isAutonomous() && isEnabled()) {
+        if (isAutonomous() && isEnabled()) {
             //goit.fastly(.4, .03);//1 is 5, wtf
             //goit.fastly(.5, .03);//1 is 5, wtf
             //goit.fastly(.55, .6);//1 is 5, wtf
             //goit.fastly(.5, .03);//1 is 5, wtf
-            //goit.fastly(.4, .03);//1 is 5,
+            //goit.fastly(.4, .03);//1 is 5, wtf
             //goit.fastly(.01, .2);//1 is 5, wtf
             //goit.fastly(0.1, .03);//1 is 5, wtf
 
-            goit.fastly(.5, .05);//1 is 5, wtf
-            goit.fastly(1,.2);
-            goit.fastly(-.5, .1);
+            //goit.fastly(.5, .05);//1 is 5, wtf
+            //goit.fastly(1,.2);
+            //goit.fastly(-.5, .1);
+
+            goit.fastly(1, .75);
+            goit.fastly(-1, .01);
 
             //goit.turn(45, Auto.direction.RIGHT);
             while (isAutonomous() && isEnabled()) {
                 Timer.delay(1);
             }
-            return;
         }
     }
 
