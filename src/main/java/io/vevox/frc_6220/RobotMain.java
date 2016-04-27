@@ -1,6 +1,7 @@
 package io.vevox.frc_6220;
 
 import edu.wpi.first.wpilibj.*;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * Created by matt on 1/19/16.
@@ -15,6 +16,10 @@ public class RobotMain extends SampleRobot {
     public void robotInit() {
         //Motor init
         drive = new RobotDrive(0,2,3,4); //TODO Make this sane
+
+        //UI
+        SmartDashboard.putString("DB/String 0", "Test");
+        SmartDashboard.putNumber("DB/String 5", 1.0);
 
         //Debug
         boolean debug = false;
@@ -66,7 +71,7 @@ public class RobotMain extends SampleRobot {
 
     // This function is called once each time the robot enters teleop mode.
     public void operatorControl() {
-        int reverse = 1;
+        //int reverse = 1;
         while(isOperatorControl() && isEnabled()) {
             //http://team358.org/files/programming/ControlSystem2015-2019/images/XBoxControlMapping.jpg
             drive.tankDrive( -1 * (joystick.getRawAxis(1)), -1 * (joystick.getRawAxis(5))); //Sticks
