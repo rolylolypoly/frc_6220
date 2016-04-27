@@ -7,17 +7,15 @@ import edu.wpi.first.wpilibj.*;
  * Will was here.
  */
 public class RobotMain extends SampleRobot {
-    RobotDrive drive;
-    Joystick joystick;
-    Auto goit;
+    private RobotDrive drive;
+    private Joystick joystick;
+    private Auto goit;
     //VictorSP victorSP1;
     //VictorSP victorSP2;
     public void robotInit() {
-        //Motor
-        drive = new RobotDrive(0,2,3,4);
-        //drive = new RobotDrive(1,2);
-        //victorSP1 = new VictorSP(1);
-        //victorSP2 = new VictorSP(2);
+        //Motor init
+        drive = new RobotDrive(0,2,3,4); //TODO Make this sane
+
         //Debug
         boolean debug = false;
         double voltage = DriverStation.getInstance().getBatteryVoltage();
@@ -32,15 +30,16 @@ public class RobotMain extends SampleRobot {
             System.out.println("Y acceleration: " + accelerometer.getY());
             System.out.println("Z acceleration: " + accelerometer.getZ());
         }
+
+        //Autonomous init
         goit = new Auto(drive);
-        //Joystick
+
+        //Joystick init
         joystick = new Joystick(0);
-        //victorSP1.set(0.1);
-        //victorSP2.set(0.1);
     }
 
     //This function is called once each time the robot enters autonomous mode.
-    public void autonomous() {
+    public void autonomous() { //TODO TEST THIS
         // Put code here
         if (isAutonomous() && isEnabled()) {
             //goit.fastly(.4, .03);//1 is 5, wtf
@@ -70,8 +69,8 @@ public class RobotMain extends SampleRobot {
         int reverse = 1;
         while(isOperatorControl() && isEnabled()) {
             //http://team358.org/files/programming/ControlSystem2015-2019/images/XBoxControlMapping.jpg
-            drive.tankDrive( -1 * (joystick.getRawAxis(1)), -1 * (joystick.getRawAxis(5)));
-            //drive.tankDrive(joystick.getRawAxis(2),joystick.getRawAxis(3));
+            drive.tankDrive( -1 * (joystick.getRawAxis(1)), -1 * (joystick.getRawAxis(5))); //Sticks
+            //drive.tankDrive(joystick.getRawAxis(2),joystick.getRawAxis(3)); //Triggers
             //victorSP1.set(0.1);
             //victorSP2.set(0.1);
             Timer.delay(0.005);

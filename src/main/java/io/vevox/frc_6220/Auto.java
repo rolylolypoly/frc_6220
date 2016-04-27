@@ -6,17 +6,17 @@ import edu.wpi.first.wpilibj.RobotDrive;
  * Created by Bob on 3/31/2016.
  */
 public class Auto {
-    enum direction {
+    private enum direction {
         LEFT, RIGHT
     }
 
-    RobotDrive drive;
+    private RobotDrive drive;
 
-    public Auto(RobotDrive drive) {
+    Auto(RobotDrive drive) {
         this.drive = drive;
     }
 
-    public void fastly(double speed, double time) {
+    void fastly(double speed, double time) {
         //time *= 100;
         //for (int i = 0; i <= time; i++) {
         //    drive.tankDrive(speed, speed - .1);
@@ -24,7 +24,7 @@ public class Auto {
         //}
         double end = time + System.currentTimeMillis();
         while (end >= System.currentTimeMillis()) {
-            drive.tankDrive(speed, speed - .15);
+            drive.tankDrive(speed, speed - .15); //TODO Test if this is necessary still
         }
     }
 
