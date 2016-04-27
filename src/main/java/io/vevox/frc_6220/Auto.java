@@ -17,7 +17,7 @@ public class Auto {
     }
 
     void fastly(double speed, double time) {
-        //time *= 100;
+        time *= 1000;
         //for (int i = 0; i <= time; i++) {
         //    drive.tankDrive(speed, speed - .1);
         //    Timer.delay(.01);

@@ -21,6 +21,18 @@ public class RobotMain extends SampleRobot {
         SmartDashboard.putString("DB/String 0", "Test");
         SmartDashboard.putNumber("DB/String 5", 1.0);
 
+        SmartDashboard.putString("DB/String 1", "Speed Forward: ");
+        SmartDashboard.putString("DB/String 2", "Time Forward: ");
+        SmartDashboard.putString("DB/String 3", "Speed Backward: ");
+        SmartDashboard.putString("DB/String 4", "Time Backward: ");
+
+        SmartDashboard.putNumber("DB/String 6", 1.0);
+        SmartDashboard.putNumber("DB/String 7", 5.0);
+        SmartDashboard.putNumber("DB/String 8", -1.0);
+        SmartDashboard.putNumber("DB/String 9", .1);
+
+
+
         //Debug
         boolean debug = false;
         double voltage = DriverStation.getInstance().getBatteryVoltage();
@@ -59,8 +71,11 @@ public class RobotMain extends SampleRobot {
             //goit.fastly(1,.2);
             //goit.fastly(-.5, .1);
 
-            goit.fastly(1, .75);
-            goit.fastly(-1, .01);
+            //goit.fastly(1, .75);
+            //goit.fastly(-1, .01);
+
+            goit.fastly(SmartDashboard.getNumber("DB/String 6"), SmartDashboard.getNumber("DB/String 7"));
+            goit.fastly(SmartDashboard.getNumber("DB/String 8"), SmartDashboard.getNumber("DB/String 9"));
 
             //goit.turn(45, Auto.direction.RIGHT);
             while (isAutonomous() && isEnabled()) {
