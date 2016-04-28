@@ -27,9 +27,9 @@ public class RobotMain extends SampleRobot {
         SmartDashboard.putString("DB/String 4", "Time Backward: ");
 
         SmartDashboard.putNumber("DB/String 6", 1.0);
-        SmartDashboard.putNumber("DB/String 7", 5.0);
+        SmartDashboard.putNumber("DB/String 7", 3.5);
         SmartDashboard.putNumber("DB/String 8", -1.0);
-        SmartDashboard.putNumber("DB/String 9", .1);
+        SmartDashboard.putNumber("DB/String 9", .3);
 
 
 
@@ -56,7 +56,7 @@ public class RobotMain extends SampleRobot {
     }
 
     //This function is called once each time the robot enters autonomous mode.
-    public void autonomous() { //TODO TEST THIS
+    public void autonomous() {
         // Put code here
         if (isAutonomous() && isEnabled()) {
             //goit.fastly(.4, .03);//1 is 5, wtf
@@ -79,7 +79,7 @@ public class RobotMain extends SampleRobot {
 
             //goit.turn(45, Auto.direction.RIGHT);
             while (isAutonomous() && isEnabled()) {
-                Timer.delay(1);
+                drive.tankDrive(0,0);
             }
         }
     }

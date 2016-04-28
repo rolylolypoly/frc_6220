@@ -24,7 +24,7 @@ public class Auto {
         //}
         double end = time + System.currentTimeMillis();
         while (end >= System.currentTimeMillis()) {
-            drive.tankDrive(speed, speed - .15); //TODO Test if this is necessary still
+            drive.tankDrive(speed, speed);
         }
     }
 
