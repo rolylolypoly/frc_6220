@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
- * Created by matt on 1/19/16.
+ * Created by Carter on 1/19/16.
  * Will was here.
  */
 public class RobotMain extends SampleRobot {
