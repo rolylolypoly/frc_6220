@@ -3,7 +3,7 @@ package io.vevox.frc_6220;
 import edu.wpi.first.wpilibj.RobotDrive;
 
 /**
- * Created by Bob on 3/31/2016.
+ * Created by xX69AnusMan69Xx on 3/31/2016.
  */
 public class Auto {
     private enum direction {
